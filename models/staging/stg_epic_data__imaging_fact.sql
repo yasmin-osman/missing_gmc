@@ -1,6 +1,6 @@
 select
     ImagingOrderEpicId as order_id,
-    ReportedInstant_X as reported_instant,
+    nullif(ReportedInstant_X, 'NULL') as reported_instant,
     FinalizingDateKey as finalizing_date_key,
     StudyStatus as status
 

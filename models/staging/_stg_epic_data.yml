@@ -1,8 +1,12 @@
 models:
   - name: stg_epic_data__imaging_fact
     columns:
-      - name: ImagingOrderEpicId
+      - name: order_id
         data_tests:
           - not_null
           - unique
-        
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Exam Ended', 'Needs Review', 'Scheduled', 'Exam Begun', 'Saved', '*Unspecified', 'Arrived']
