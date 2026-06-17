@@ -1,14 +1,22 @@
-Welcome to your new dbt project!
+# epic_data
 
-### Using the starter project
+A dbt project that models imaging order data sourced from Epic.
 
-Try running the following commands:
-- dbt build
+## Project structure
 
+- `models/staging` — staging models that clean and rename raw source columns.
+  - `stg_epic_data__imaging_fact` — staged imaging order data from the `epic_data.imaging_fact` source table.
+- `models/marts` — business-facing marts built on top of staging models.
+  - `imaging_fact` — imaging fact table.
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Sources and data tests are defined alongside the staging models in `_src_epic_data.yml` and `_stg_epic_data.yml`.
+
+## Usage
+
+Run the project with:
+
+```
+dbt build
+```
+
+This compiles and runs all models, then executes the configured data tests (e.g. `not_null` and `unique` on `order_id`, `accepted_values` on `status`).
