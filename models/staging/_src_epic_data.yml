@@ -1,0 +1,12 @@
+sources:
+  - name: epic_data
+    database: raw
+    description: "This is the source for the Epic Data"
+    schema: epic_data
+    tables:
+      - name: imaging_fact
+        description: "This is the source for the Imaging Fact table"
+        config:
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}

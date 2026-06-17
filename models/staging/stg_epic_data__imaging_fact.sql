@@ -4,4 +4,4 @@ select
     FinalizingDateKey as finalizing_date_key,
     StudyStatus as status
 
-from raw.epic_data.imaging_fact
+from {{ source('epic_data', 'imaging_fact') }}
