@@ -9,4 +9,5 @@ models:
         data_tests:
           - accepted_values:
               arguments:
-                values: ['Exam Ended', 'Needs Review', 'Scheduled', 'Exam Begun', 'Saved', '*Unspecified', 'Arrived']
+                values: ['Exam Ended', 'Needs Review', 'Scheduled', 'Exam Begun', 'Saved', '*Unspecified', 'Arrived', 'Final']
+              
